@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/ABC.Learning.Resource.Center/.vs
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.Application/obj/Debug/net8.0
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.Application/obj
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.Domain/bin/Debug/net8.0
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.Domain/obj
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.Persistence/obj
+/.vs
