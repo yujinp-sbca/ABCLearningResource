@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ABC.Learning.Resource.Domain\ABC.Learning.Resource.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\BookPrices\GetLatestPriceByBookId\" />
+    <Folder Include="Features\BookPrices\UpdateBookPrice\" />
+    <Folder Include="Features\BookStocks\" />
+    <Folder Include="Features\Books\DeleteBook\" />
+    <Folder Include="Features\BookTransactions\" />
+    <Folder Include="Features\Users\AddUser\" />
+    <Folder Include="Features\Users\DeleteUser\" />
+    <Folder Include="Features\UserAccount\RevokeMembership\" />
+    <Folder Include="Features\UserAccount\SetUserAsAdmin\" />
+    <Folder Include="Features\Users\UpdateUser\" />
+    <Folder Include="Features\UserAccount\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.5" />
+  </ItemGroup>
+
+</Project>
