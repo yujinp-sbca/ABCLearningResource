@@ -7,21 +7,28 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ABC.Learning.Resource.Domain\ABC.Learning.Resource.Domain.csproj" />
+    <Compile Remove="Features\BookPrices\**" />
+    <Compile Remove="Features\BookStocks\**" />
+    <Compile Remove="Features\Books\DeleteBook\**" />
+    <Compile Remove="Features\BookTransactions\**" />
+    <Compile Remove="Features\UserAccount\**" />
+    <Compile Remove="Features\Users\**" />
+    <EmbeddedResource Remove="Features\BookPrices\**" />
+    <EmbeddedResource Remove="Features\BookStocks\**" />
+    <EmbeddedResource Remove="Features\Books\DeleteBook\**" />
+    <EmbeddedResource Remove="Features\BookTransactions\**" />
+    <EmbeddedResource Remove="Features\UserAccount\**" />
+    <EmbeddedResource Remove="Features\Users\**" />
+    <None Remove="Features\BookPrices\**" />
+    <None Remove="Features\BookStocks\**" />
+    <None Remove="Features\Books\DeleteBook\**" />
+    <None Remove="Features\BookTransactions\**" />
+    <None Remove="Features\UserAccount\**" />
+    <None Remove="Features\Users\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\BookPrices\GetLatestPriceByBookId\" />
-    <Folder Include="Features\BookPrices\UpdateBookPrice\" />
-    <Folder Include="Features\BookStocks\" />
-    <Folder Include="Features\Books\DeleteBook\" />
-    <Folder Include="Features\BookTransactions\" />
-    <Folder Include="Features\Users\AddUser\" />
-    <Folder Include="Features\Users\DeleteUser\" />
-    <Folder Include="Features\UserAccount\RevokeMembership\" />
-    <Folder Include="Features\UserAccount\SetUserAsAdmin\" />
-    <Folder Include="Features\Users\UpdateUser\" />
-    <Folder Include="Features\UserAccount\" />
+    <ProjectReference Include="..\ABC.Learning.Resource.Domain\ABC.Learning.Resource.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

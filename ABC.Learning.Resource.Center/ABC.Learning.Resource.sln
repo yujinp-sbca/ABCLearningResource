@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ABC.Learning.Resource.Persi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ABC.Learning.Resource.Application", "ABC.Learning.Resource.Application\ABC.Learning.Resource.Application.csproj", "{859F0F3B-17E8-43EA-975D-7D049B42BCAD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ABC.Learning.Resource.API", "ABC.Learning.Resource.API\ABC.Learning.Resource.API.csproj", "{E8F5C040-526C-4E38-8BDC-D20A3DF1FC08}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{859F0F3B-17E8-43EA-975D-7D049B42BCAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{859F0F3B-17E8-43EA-975D-7D049B42BCAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{859F0F3B-17E8-43EA-975D-7D049B42BCAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8F5C040-526C-4E38-8BDC-D20A3DF1FC08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8F5C040-526C-4E38-8BDC-D20A3DF1FC08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8F5C040-526C-4E38-8BDC-D20A3DF1FC08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8F5C040-526C-4E38-8BDC-D20A3DF1FC08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +57,7 @@ Global
 		{71BBAAF7-3D78-44D0-99B5-982DB487E410} = {72D6036D-3D96-4183-BC74-F77E169CDB9B}
 		{57E1BACF-952D-4F50-B554-D50E458386A4} = {C709AEF4-59E7-4344-8902-E4CB0663599F}
 		{859F0F3B-17E8-43EA-975D-7D049B42BCAD} = {72D6036D-3D96-4183-BC74-F77E169CDB9B}
+		{E8F5C040-526C-4E38-8BDC-D20A3DF1FC08} = {D687832B-0960-4BC6-A35F-6CA2AD6F3CF3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D2274290-E40C-4572-916C-C88882D82A0C}

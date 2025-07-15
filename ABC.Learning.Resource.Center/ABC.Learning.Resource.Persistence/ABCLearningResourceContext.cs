@@ -1,4 +1,5 @@
-﻿using ABC.Learning.Resource.Domain.Entities;
+﻿using ABC.Learning.Resource.Domain.Common;
+using ABC.Learning.Resource.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace ABC.Learning.Resource.Persistence
@@ -17,14 +18,21 @@ namespace ABC.Learning.Resource.Persistence
         public DbSet<User> Users { get; set; }
         public DbSet<UserAccount> UserAccounts { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-            base.OnModelCreating(modelBuilder);
-            // Configure entity properties and relationships here if needed
-            modelBuilder.Entity<Book>().HasKey(b => b.BookId);
-            modelBuilder.Entity<BookPrice>().HasKey(bp => new { bp.BookId});
-            modelBuilder.Entity<BookStock>().HasKey(bs => new { bs.BookId});
-            modelBuilder.Entity<User>().HasKey(u => u.UserId);
-            modelBuilder.Entity<UserAccount>().HasKey(ua => ua.UserId);
+            foreach (var entry in ChangeTracker.Entries<AuditEntity>())
+            {
+                if (entry.State == EntityState.Added)
+                {
+                    entry.Entity.CreatedDate = DateTime.UtcNow;
+                    entry.Entity.LastModifiedDate = DateTime.UtcNow;
+                }
+                else if (entry.State == EntityState.Modified)
+                {
+                    entry.Entity.LastModifiedDate = DateTime.UtcNow;
+                }
+            }
+            return base.SaveChangesAsync(cancellationToken);
         }
+    }
 }

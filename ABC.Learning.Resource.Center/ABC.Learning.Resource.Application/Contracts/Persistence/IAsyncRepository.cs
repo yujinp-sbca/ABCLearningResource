@@ -6,6 +6,6 @@
         public Task<IReadOnlyList<T>> GetAllAsync();
         public Task<T> AddAsync(T entity);
         public Task<T> UpdateAsync(T entity);
-        public Task DeleteAsync(T entity);
+        public Task<bool> DeleteAsync(T entity);
     }
 }

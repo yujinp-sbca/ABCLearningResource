@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="9.0.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="9.0.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="9.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ABC.Learning.Resource.Application\ABC.Learning.Resource.Application.csproj" />
+    <ProjectReference Include="..\ABC.Learning.Resource.Domain\ABC.Learning.Resource.Domain.csproj" />
+    <ProjectReference Include="..\ABC.Learning.Resource.Persistence\ABC.Learning.Resource.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>

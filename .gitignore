@@ -15,3 +15,9 @@
 /.vs
 =======
 >>>>>>> Stashed changes
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.API/bin/Debug/net8.0
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.API/obj
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.API/Properties
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.API/ABC.Learning.Resource.API.csproj.user
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.Application/bin/Debug/net8.0
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.Persistence/bin/Debug/net8.0
