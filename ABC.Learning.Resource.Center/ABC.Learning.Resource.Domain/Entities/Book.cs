@@ -13,7 +13,9 @@ namespace ABC.Learning.Resource.Domain.Entities
         public required string Title { get; set; }
         public required string Author { get; set; }
         public required string ISBN { get; set; }
+        public required Guid CategoryId { get; set; }
         public required DateTime PublishedDate { get; set; }
+        public required string Abstract { get; set; }
         public required string Publisher { get; set; }
         public required string Language { get; set; }
         public required string Description { get; set; }

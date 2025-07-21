@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ABC.Learning.Resource.Application.Features.Books;
 
 namespace ABC.Learning.Resource.Application.Services
 {
     public interface IBookService
     {
-
+        public Task<AddBookServiceResponseDTO> AddBook(AddBookServiceRequestDTO bookServiceRequestDTO);
     }
 }

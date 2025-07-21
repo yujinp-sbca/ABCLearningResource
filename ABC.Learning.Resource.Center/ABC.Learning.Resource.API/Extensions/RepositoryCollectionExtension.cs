@@ -5,11 +5,12 @@ namespace ABC.Learning.Resource.API.Extensions
 {
     public static class RepositoryCollectionExtension
     {
-        public static IServiceCollection RegisterABCLearningResourceContexts(this IServiceCollection services)
+        public static IServiceCollection RegisterABCLearningResourceFeatures(this IServiceCollection services)
         {
             services.AddScoped(typeof(IAsyncRepository<>), typeof(BaseRepository<>));
             services.AddScoped<IBookRepository, BookRepository>();
-
+            services.AddScoped<IBookPriceRepository, BookPriceRepository>();
+            services.AddScoped<IBookStockRepository, BookStockRepository>();
             return services;
         }
     }

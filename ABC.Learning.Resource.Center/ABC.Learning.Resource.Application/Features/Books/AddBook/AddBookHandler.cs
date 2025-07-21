@@ -17,9 +17,8 @@ namespace ABC.Learning.Resource.Application.Features.Books
         public async Task<AddBookResponseDTO> Handle(AddBookRequestDTO addBookDTO)
         {
             if (addBookDTO == null)
-            {
-                _logger.LogError("AddBookDTO is null");
-                throw new ArgumentNullException(nameof(addBookDTO));
+            {                
+                throw new ApplicationException("Invalid book parameter.");
             }
                                                       
             var book = new Book
@@ -27,6 +26,8 @@ namespace ABC.Learning.Resource.Application.Features.Books
                 BookId = Guid.NewGuid(),
                 Title = addBookDTO.Title,
                 Author = addBookDTO.Author,
+                CategoryId = addBookDTO.CategoryId,
+                Abstract = addBookDTO.Abstract,
                 ISBN = addBookDTO.ISBN,
                 PublishedDate = addBookDTO.PublishedDate,
                 Publisher = addBookDTO.Publisher,
@@ -49,11 +50,7 @@ namespace ABC.Learning.Resource.Application.Features.Books
                 Title = book.Title,
                 Author = book.Author,
                 ISBN = book.ISBN,
-                PublishedDate = book.PublishedDate,
-                Publisher = book.Publisher,
-                Language = book.Language,
-                Description = book.Description,
-                CoverImageUrl = book.CoverImageUrl
+                Abstract = book.Abstract
             };
         }
     }

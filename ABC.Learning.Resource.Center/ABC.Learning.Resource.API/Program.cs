@@ -14,6 +14,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.RegisterABCLearningDBContext(configuration);
 builder.Services.RegisterABCLearningResourceContexts();
+builder.Services.RegisterABCLearningResourceFeatures();
+builder.Services.RegisterABCLearningResourceServices();
 
 var app = builder.Build();
 
@@ -24,8 +26,6 @@ if(app.Environment.IsDevelopment())
 }
 
 app.UseRouting();
-
-
-app.MapGet("/", () => "Hello World!");
+app.MapControllers();
 
 app.Run();

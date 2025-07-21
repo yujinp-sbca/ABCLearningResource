@@ -12,5 +12,6 @@ namespace ABC.Learning.Resource.Domain.Entities
         public required Guid BookPriceId { get; set; }
         public required Guid BookId { get; set; }
         public required double Price { get; set; }
+        public required bool IsActive { get; set; } = true;
     }
 }

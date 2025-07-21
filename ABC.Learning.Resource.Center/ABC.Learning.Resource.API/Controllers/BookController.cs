@@ -1,0 +1,45 @@
+﻿using ABC.Learning.Resource.Application.Services;
+using Microsoft.AspNetCore.Mvc;
+
+namespace ABC.Learning.Resource.API.Controllers
+{
+    public class BookController : ControllerBase
+    {
+        private readonly ILogger<BookController> _logger;
+        private readonly IBookService _bookService;
+        public BookController(ILogger<BookController> logger, IBookService bookService)
+        {
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _bookService = bookService ?? throw new ArgumentNullException(nameof(bookService));
+        }
+
+        //AddBook
+        [HttpPost("api/v1/books/add")]
+        public async Task<IActionResult> AddBook([FromBody] AddBookServiceRequestDTO bookServiceRequestDTO)
+        {
+            if (bookServiceRequestDTO == null)
+            {
+                _logger.LogError("Invalid book service request DTO.");
+                return BadRequest("Invalid book service request.");
+            }
+
+            try
+            {
+                
+                var response = await _bookService.AddBook(bookServiceRequestDTO);
+                
+                if (response == null || response.BookId == Guid.Empty)
+                {
+                    _logger.LogError("Failed to add book.");
+                    return StatusCode(StatusCodes.Status500InternalServerError, "Failed to add book.");
+                }
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while adding the book.");
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while processing your request.");
+            }
+        }
+    }
+}
