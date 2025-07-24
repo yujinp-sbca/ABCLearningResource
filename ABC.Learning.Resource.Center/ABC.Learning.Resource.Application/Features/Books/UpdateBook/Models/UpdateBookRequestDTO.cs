@@ -17,5 +17,8 @@ namespace ABC.Learning.Resource.Application.Features.Books
         public string Language { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public string CoverImageUrl { get; set; } = string.Empty;
+        public string Abstract { get; set; } = string.Empty;
+        public Guid CategoryId { get; set; } = Guid.Empty;
+        public string ModifiedBy { get; set; } = string.Empty;
     }
 }

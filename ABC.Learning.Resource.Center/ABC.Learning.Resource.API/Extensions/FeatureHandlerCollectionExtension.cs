@@ -1,5 +1,6 @@
 ﻿
 using ABC.Learning.Resource.Application.Features.Books;
+using ABC.Learning.Resource.Application.Features.User;
 
 namespace ABC.Learning.Resource.API.Extensions
 {
@@ -10,6 +11,7 @@ namespace ABC.Learning.Resource.API.Extensions
             services.AddScoped<IAddBookHandler, AddBookHandler>();
             services.AddScoped<IAddBookPriceHandler, AddBookPriceHandler>();
             services.AddScoped<IAddBookStockHandler, AddBookStockHandler>();
+            services.AddScoped<IGetActiveUserByEmailHandler, GetActiveUserByEmailHandler>();
 
             return services;
         }

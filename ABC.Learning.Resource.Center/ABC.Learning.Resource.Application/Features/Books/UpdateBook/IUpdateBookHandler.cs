@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ABC.Learning.Resource.Application.Features.Books
 {
-    internal interface IUpdateBookHandler
+    public interface IUpdateBookHandler
     {
+        public Task<UpdateBookResponseDTO> Handle(UpdateBookRequestDTO updateBookRequest);
     }
 }

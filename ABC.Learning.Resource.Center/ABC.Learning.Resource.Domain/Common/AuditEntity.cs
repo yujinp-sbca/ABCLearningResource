@@ -8,9 +8,9 @@ namespace ABC.Learning.Resource.Domain.Common
 {
     public class AuditEntity
     {
-        public required string CreatedBy { get; set; }
-        public required DateTime CreatedDate { get; set; }
+        public string CreatedBy { get; set; } = string.Empty;
+        public DateTime CreatedDate { get; set; }
         public required string LastModifiedBy { get; set; }
-        public required DateTime LastModifiedDate { get; set; }
+        public DateTime LastModifiedDate { get; set; }
     }
 }

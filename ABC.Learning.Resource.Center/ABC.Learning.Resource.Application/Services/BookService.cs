@@ -1,5 +1,6 @@
 ﻿
 using ABC.Learning.Resource.Application.Features.Books;
+using ABC.Learning.Resource.Application.Features.User;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -14,18 +15,32 @@ namespace ABC.Learning.Resource.Application.Services
         private readonly IAddBookHandler _addBookHandler;
         private readonly IAddBookStockHandler _addBookStockHandler;
         private readonly IAddBookPriceHandler _addBookPriceHandler;
+        private readonly IGetActiveUserByEmailHandler _getActiveUserByEmailHandler;
         private readonly ILogger<IBookService> _logger;
-        public BookService(IAddBookHandler addBookHandler, IAddBookPriceHandler addBookPriceHandler, IAddBookStockHandler addBookStockHandler, ILogger<IBookService> logger)
+        public BookService(IAddBookHandler addBookHandler, IAddBookPriceHandler addBookPriceHandler, IAddBookStockHandler addBookStockHandler, IGetActiveUserByEmailHandler getActiveUserByEmailHandler, ILogger<IBookService> logger)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _addBookHandler = addBookHandler ?? throw new ArgumentNullException(nameof(addBookHandler));
             _addBookPriceHandler = addBookPriceHandler ?? throw new ArgumentNullException(nameof(addBookPriceHandler));
             _addBookStockHandler = addBookStockHandler ?? throw new ArgumentNullException(nameof(addBookStockHandler));
+            _getActiveUserByEmailHandler = getActiveUserByEmailHandler ?? throw new ArgumentNullException(nameof(getActiveUserByEmailHandler));
         }
 
         public async Task<AddBookServiceResponseDTO> AddBook(AddBookServiceRequestDTO bookServiceRequestDTO)
         {
             var newBookServiceResponseDTO = new AddBookServiceResponseDTO();
+
+            var user = await _getActiveUserByEmailHandler.Handle(bookServiceRequestDTO.CreatedBy);
+            if(user == null)
+            {
+                throw new ApplicationException($"User with email {bookServiceRequestDTO.CreatedBy} does not exist or is not active.");
+            }
+
+            if(!user.IsAdmin)
+            {
+                _logger.LogError($"User with email {bookServiceRequestDTO.CreatedBy} is not an admin and cannot add books.");
+                throw new UnauthorizedAccessException($"User with email {bookServiceRequestDTO.CreatedBy} is not authorized to add books.");
+            }
 
             var newBookRequestDTO = new AddBookRequestDTO
             {
@@ -44,9 +59,12 @@ namespace ABC.Learning.Resource.Application.Services
 
             var newBookResponseDTO = await _addBookHandler.Handle(newBookRequestDTO);
 
-            if(newBookResponseDTO?.BookId != Guid.Empty)
+            if (newBookResponseDTO?.BookId == Guid.Empty)
             {
-                var newBookPriceResponseDTO = await _addBookPriceHandler.Handle(
+                throw new ApplicationException("Failed to add new book.");
+            }
+
+            var newBookPriceResponseDTO = await _addBookPriceHandler.Handle(
                         new AddBookPriceRequestDTO()
                         {
                             BookId = newBookResponseDTO.BookId,
@@ -55,23 +73,22 @@ namespace ABC.Learning.Resource.Application.Services
                         }
                     );
 
-                var newBookStockResponseDTO = await _addBookStockHandler.Handle(
-                        new AddBookStockRequestDTO()
-                        {
-                            BookId = newBookResponseDTO.BookId,
-                            Stock = bookServiceRequestDTO.Stock,
-                            CreatedBy = bookServiceRequestDTO.CreatedBy                            
-                        }
-                    );
+            var newBookStockResponseDTO = await _addBookStockHandler.Handle(
+                    new AddBookStockRequestDTO()
+                    {
+                        BookId = newBookResponseDTO.BookId,
+                        Stock = bookServiceRequestDTO.Stock,
+                        CreatedBy = bookServiceRequestDTO.CreatedBy
+                    }
+                );
 
-                newBookServiceResponseDTO.BookId = newBookResponseDTO.BookId;
-                newBookServiceResponseDTO.Title = newBookResponseDTO.Title;
-                newBookServiceResponseDTO.Author = newBookResponseDTO.Author;
-                newBookServiceResponseDTO.ISBN = newBookResponseDTO.ISBN;
-                newBookServiceResponseDTO.Abstract = newBookResponseDTO.Abstract;
-                newBookServiceResponseDTO.Stock = newBookStockResponseDTO.Stock;
-                newBookServiceResponseDTO.Price = newBookPriceResponseDTO.Price;
-            }
+            newBookServiceResponseDTO.BookId = newBookResponseDTO.BookId;
+            newBookServiceResponseDTO.Title = newBookResponseDTO.Title;
+            newBookServiceResponseDTO.Author = newBookResponseDTO.Author;
+            newBookServiceResponseDTO.ISBN = newBookResponseDTO.ISBN;
+            newBookServiceResponseDTO.Abstract = newBookResponseDTO.Abstract;
+            newBookServiceResponseDTO.Stock = newBookStockResponseDTO.Stock;
+            newBookServiceResponseDTO.Price = newBookPriceResponseDTO.Price;
 
             return newBookServiceResponseDTO;
         }

@@ -14,8 +14,7 @@ namespace ABC.Learning.Resource.Persistence
         public DbSet<Book> Books { get; set; }
         public DbSet<BookPrice> BookPrices { get; set; }
         public DbSet<BookStock> BookStocks { get; set; }
-        public DbSet<BookTransaction> BookTransactions { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<BookTransaction> BookTransactions { get; set; }        
         public DbSet<UserAccount> UserAccounts { get; set; }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
@@ -28,7 +27,7 @@ namespace ABC.Learning.Resource.Persistence
                     entry.Entity.LastModifiedDate = DateTime.UtcNow;
                 }
                 else if (entry.State == EntityState.Modified)
-                {
+                {                    
                     entry.Entity.LastModifiedDate = DateTime.UtcNow;
                 }
             }

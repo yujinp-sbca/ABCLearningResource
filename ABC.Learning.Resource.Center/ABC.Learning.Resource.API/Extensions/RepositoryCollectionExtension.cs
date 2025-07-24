@@ -11,6 +11,7 @@ namespace ABC.Learning.Resource.API.Extensions
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<IBookPriceRepository, BookPriceRepository>();
             services.AddScoped<IBookStockRepository, BookStockRepository>();
+            services.AddScoped<IUserAccountRepository, UserAccountRepository>();
             return services;
         }
     }

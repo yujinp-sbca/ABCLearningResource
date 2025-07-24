@@ -1,5 +1,6 @@
 ﻿using ABC.Learning.Resource.Application.Contracts.Persistence;
 using ABC.Learning.Resource.Domain.Entities;
+using ABC.Learning.Resource.Exceptions;
 using Microsoft.Extensions.Logging;
 
 
@@ -16,12 +17,16 @@ namespace ABC.Learning.Resource.Application.Features.Books
         }
         public async Task<AddBookResponseDTO> Handle(AddBookRequestDTO addBookDTO)
         {
-            if (addBookDTO == null)
-            {                
-                throw new ApplicationException("Invalid book parameter.");
+            var addBookValidator = new AddBookValidation();
+            var validationResult = await addBookValidator.ValidateAsync(addBookDTO);
+            if ((!validationResult.IsValid))
+            {
+                string validationErrors = string.Join(", ", validationResult.Errors.Select(e => e.ErrorMessage));
+                _logger.LogError("Create PII Item Request Command validation failed: {errors}", validationErrors);
+                throw new ValidationException(validationResult);
             }
                                                       
-            var book = new Book
+            var newBook = new Book
             {
                 BookId = Guid.NewGuid(),
                 Title = addBookDTO.Title,
@@ -34,23 +39,22 @@ namespace ABC.Learning.Resource.Application.Features.Books
                 Language = addBookDTO.Language,
                 Description = addBookDTO.Description,
                 CoverImageUrl = addBookDTO.CoverImageUrl,
-                CreatedBy = "Administrator",
-                CreatedDate = DateTime.UtcNow,
-                LastModifiedBy = "Administrator",
-                LastModifiedDate = DateTime.UtcNow
+                CreatedBy = addBookDTO.CreatedBy,                
+                LastModifiedBy = addBookDTO.CreatedBy,                
+                IsActive = true
             };
 
-            _logger.LogInformation($"Adding book: {book.Title} by {book.Author}");
-            await _bookRepository.AddAsync(book);
-            _logger.LogInformation($"Book {book.Title} added successfully with ID: {book.BookId}");
+            _logger.LogInformation($"Adding book: {newBook.Title} by {newBook.Author}");
+            var newBookResponse = await _bookRepository.AddAsync(newBook);
+            _logger.LogInformation($"Book {newBook.Title} added successfully with ID: {newBook.BookId}");
 
             return new AddBookResponseDTO()
             {
-                BookId = book.BookId,
-                Title = book.Title,
-                Author = book.Author,
-                ISBN = book.ISBN,
-                Abstract = book.Abstract
+                BookId = newBookResponse.BookId,
+                Title = newBookResponse.Title,
+                Author = newBookResponse.Author,
+                ISBN = newBookResponse.ISBN,
+                Abstract = newBookResponse.Abstract
             };
         }
     }

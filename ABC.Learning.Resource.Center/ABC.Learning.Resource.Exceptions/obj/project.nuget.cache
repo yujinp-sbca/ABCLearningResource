@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "kJiK+KB3pVQ=",
+  "success": true,
+  "projectFilePath": "C:\\Development\\MIT\\Term1\\ABCLearningResourceCenter\\Application\\ABCLearningResource\\ABC.Learning.Resource.Center\\ABC.Learning.Resource.Exceptions\\ABC.Learning.Resource.Exceptions.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\palacioe3685\\.nuget\\packages\\fluentvalidation\\12.0.0\\fluentvalidation.12.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

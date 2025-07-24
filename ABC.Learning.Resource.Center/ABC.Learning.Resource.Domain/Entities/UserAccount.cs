@@ -12,9 +12,11 @@ namespace ABC.Learning.Resource.Domain.Entities
     {
         [Key]
         public required string UserId { get; set; }
-        public required string UserName { get; set; }
+        public required string LastName { get; set; }
+        public required string FirstName { get; set; }        
         public required string Salt { get; set; }
         public required string HashedPassword { get; set; }
+        public required bool IsAdmin { get; set; }
         public bool IsMembershipRevoked { get; set; } = false;
 
     }

@@ -9,5 +9,6 @@ namespace ABC.Learning.Resource.Application.Contracts.Persistence
 {
     public interface IUserAccountRepository : IAsyncRepository<UserAccount>
     {
+        public Task<UserAccount> GetActiveUserByEmail(string email);
     }
 }
