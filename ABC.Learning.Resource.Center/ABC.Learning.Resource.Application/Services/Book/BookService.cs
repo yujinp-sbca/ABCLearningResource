@@ -18,10 +18,11 @@ namespace ABC.Learning.Resource.Application.Services.Book
         private readonly IUpdateBookHandler _updateBookHandler;
         private readonly IUpdateBookPriceHandler _updateBookPriceHandler;
         private readonly IUpdateBookStockHandler _updateBookStockHandler;
+        private readonly IDeleteBookByIdHandler _deleteBookByIdHandler;
         private readonly IGetBookByIdHandler _getBookByIdHandler;
         private readonly IGetActiveUserByEmailHandler _getActiveUserByEmailHandler;
         private readonly ILogger<IBookService> _logger;
-        public BookService(IAddBookHandler addBookHandler, IAddBookPriceHandler addBookPriceHandler, IAddBookStockHandler addBookStockHandler, IUpdateBookHandler updateBookHandler, IUpdateBookPriceHandler updateBookPriceHandler, IUpdateBookStockHandler updateBookStockHandler, IGetBookByIdHandler getBookByIdHandler, IGetActiveUserByEmailHandler getActiveUserByEmailHandler, ILogger<IBookService> logger)
+        public BookService(IAddBookHandler addBookHandler, IAddBookPriceHandler addBookPriceHandler, IAddBookStockHandler addBookStockHandler, IUpdateBookHandler updateBookHandler, IUpdateBookPriceHandler updateBookPriceHandler, IUpdateBookStockHandler updateBookStockHandler, IDeleteBookByIdHandler deleteBookByIdHandler, IGetBookByIdHandler getBookByIdHandler, IGetActiveUserByEmailHandler getActiveUserByEmailHandler, ILogger<IBookService> logger)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _addBookHandler = addBookHandler ?? throw new ArgumentNullException(nameof(addBookHandler));
@@ -30,6 +31,7 @@ namespace ABC.Learning.Resource.Application.Services.Book
             _updateBookHandler = updateBookHandler ?? throw new ArgumentNullException(nameof(updateBookHandler));
             _updateBookPriceHandler = updateBookPriceHandler ?? throw new ArgumentNullException(nameof(updateBookPriceHandler));
             _updateBookStockHandler = updateBookStockHandler ?? throw new ArgumentNullException(nameof(updateBookStockHandler));
+            _deleteBookByIdHandler = deleteBookByIdHandler ?? throw new ArgumentNullException(nameof(deleteBookByIdHandler));
             _getBookByIdHandler = getBookByIdHandler ?? throw new ArgumentNullException(nameof(getBookByIdHandler));
             _getActiveUserByEmailHandler = getActiveUserByEmailHandler ?? throw new ArgumentNullException(nameof(getActiveUserByEmailHandler));
         }
@@ -99,7 +101,7 @@ namespace ABC.Learning.Resource.Application.Services.Book
             newBookServiceResponseDTO.Price = newBookPriceResponseDTO.Price;
 
             return newBookServiceResponseDTO;
-        }
+        }        
 
         public async Task<UpdateBookServiceResponseDTO> UpdateBook(UpdateBookServiceRequestDTO bookServiceRequestDTO)
         {
@@ -173,6 +175,17 @@ namespace ABC.Learning.Resource.Application.Services.Book
             updateBookServiceResponseDTO.Price = updateBookPriceResponseDTO.Price;
 
             return updateBookServiceResponseDTO;
+        }
+
+        public async Task<bool> DeleteBook(DeleteBookServiceRequestDTO deleteBookServiceRequestDTO)
+        {
+            var deleteBookByIdRequestDTO = new DeleteBookByIdRequestDTO()
+            {
+                BookId = deleteBookServiceRequestDTO.BookId,
+                ModifiedBy = deleteBookServiceRequestDTO.ModifiedBy
+            };
+
+            return await _deleteBookByIdHandler.Handle(deleteBookByIdRequestDTO);
         }
     }
 }

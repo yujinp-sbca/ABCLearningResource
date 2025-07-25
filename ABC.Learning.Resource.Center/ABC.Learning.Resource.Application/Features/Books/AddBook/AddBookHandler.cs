@@ -22,7 +22,7 @@ namespace ABC.Learning.Resource.Application.Features.Books
             if ((!validationResult.IsValid))
             {
                 string validationErrors = string.Join(", ", validationResult.Errors.Select(e => e.ErrorMessage));
-                _logger.LogError("Create PII Item Request Command validation failed: {errors}", validationErrors);
+                _logger.LogError("Add book validation failed: {errors}", validationErrors);
                 throw new ValidationException(validationResult);
             }
                                                       

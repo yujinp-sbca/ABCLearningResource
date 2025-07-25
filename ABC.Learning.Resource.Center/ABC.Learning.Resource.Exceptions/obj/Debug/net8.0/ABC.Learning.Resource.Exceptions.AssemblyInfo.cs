@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ABC.Learning.Resource.Exceptions")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8e9d76ee14bf5c0ebf24db4c1a4aca125e046249")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6039ca141532f6f192d41f75c6a2ef215ec09021")]
 [assembly: System.Reflection.AssemblyProductAttribute("ABC.Learning.Resource.Exceptions")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ABC.Learning.Resource.Exceptions")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

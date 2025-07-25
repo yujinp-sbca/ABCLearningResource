@@ -1,6 +1,5 @@
 ﻿
 using ABC.Learning.Resource.Application.Features.Books;
-using ABC.Learning.Resource.Application.Features.Books.DeleteBookById;
 using ABC.Learning.Resource.Application.Features.User;
 
 namespace ABC.Learning.Resource.API.Extensions

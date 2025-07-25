@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ABC.Learning.Resource.Application.Features.Books.DeleteBookById
+namespace ABC.Learning.Resource.Application.Features.Books
 {
     public interface IDeleteBookByIdHandler
     {
-        public Task<bool> Handle(Guid bookId);
+        public Task<bool> Handle(DeleteBookByIdRequestDTO deleteBookByIdRequestDTO);
     }
 }
