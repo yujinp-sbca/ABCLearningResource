@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ABC.Learning.Resource.Application.Services
+namespace ABC.Learning.Resource.Application.Services.Book
 {
-    public class AddBookServiceResponseDTO
+    public class UpdateBookServiceResponseDTO
     {
         public Guid BookId { get; set; } = Guid.Empty;
         public string Title { get; set; } = string.Empty;

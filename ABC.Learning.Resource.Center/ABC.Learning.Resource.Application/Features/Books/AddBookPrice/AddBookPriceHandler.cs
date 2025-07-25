@@ -33,9 +33,7 @@ namespace ABC.Learning.Resource.Application.Features.Books
                 Price = addBookPriceRequestDTO.Price,
                 IsActive = true,
                 LastModifiedBy = addBookPriceRequestDTO.CreatedBy,
-                CreatedBy = addBookPriceRequestDTO.CreatedBy,
-                LastModifiedDate = DateTime.Now,
-                CreatedDate = DateTime.Now
+                CreatedBy = addBookPriceRequestDTO.CreatedBy
             };
 
             _logger.LogInformation("Adding new book price");

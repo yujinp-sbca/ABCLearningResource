@@ -1,6 +1,5 @@
-﻿using ABC.Learning.Resource.Application.Features.Books;
-
-namespace ABC.Learning.Resource.Application.Services
+﻿
+namespace ABC.Learning.Resource.Application.Services.Book.Models
 {
     public interface IBookService
     {

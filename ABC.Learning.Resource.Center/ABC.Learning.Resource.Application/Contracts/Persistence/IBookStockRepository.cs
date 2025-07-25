@@ -9,5 +9,6 @@ namespace ABC.Learning.Resource.Application.Contracts.Persistence
 {
     public interface IBookStockRepository : IAsyncRepository<BookStock>
     {
+        public Task<BookStock> GetByBookIdAsync(Guid bookId);
     }
 }

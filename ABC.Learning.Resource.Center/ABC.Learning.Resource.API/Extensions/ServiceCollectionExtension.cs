@@ -1,5 +1,5 @@
-﻿
-using ABC.Learning.Resource.Application.Services;
+﻿using ABC.Learning.Resource.Application.Services.Book;
+using ABC.Learning.Resource.Application.Services.Book.Models;
 
 namespace ABC.Learning.Resource.API.Extensions
 {

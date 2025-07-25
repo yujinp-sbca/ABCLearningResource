@@ -9,19 +9,16 @@
   <ItemGroup>
     <Compile Remove="Features\BookPrices\**" />
     <Compile Remove="Features\BookStocks\**" />
-    <Compile Remove="Features\Books\DeleteBook\**" />
     <Compile Remove="Features\BookTransactions\**" />
     <Compile Remove="Features\UserAccount\**" />
     <Compile Remove="Features\Users\**" />
     <EmbeddedResource Remove="Features\BookPrices\**" />
     <EmbeddedResource Remove="Features\BookStocks\**" />
-    <EmbeddedResource Remove="Features\Books\DeleteBook\**" />
     <EmbeddedResource Remove="Features\BookTransactions\**" />
     <EmbeddedResource Remove="Features\UserAccount\**" />
     <EmbeddedResource Remove="Features\Users\**" />
     <None Remove="Features\BookPrices\**" />
     <None Remove="Features\BookStocks\**" />
-    <None Remove="Features\Books\DeleteBook\**" />
     <None Remove="Features\BookTransactions\**" />
     <None Remove="Features\UserAccount\**" />
     <None Remove="Features\Users\**" />
