@@ -4,6 +4,7 @@ using ABC.Learning.Resource.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ABC.Learning.Resource.Persistence.Migrations
 {
     [DbContext(typeof(ABCLearningResourceContext))]
-    partial class ABCLearningResourceContextModelSnapshot : ModelSnapshot
+    [Migration("20250725145804_UpdatedBookEntities")]
+    partial class UpdatedBookEntities
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
