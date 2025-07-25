@@ -43,6 +43,7 @@ namespace ABC.Learning.Resource.API.Controllers
             }
         }
 
+        [HttpPost("api/v1/books/update")]
         public async Task<IActionResult> UpdateBook([FromBody] UpdateBookServiceRequestDTO updateBookServiceRequestDTO)
         {
             if (updateBookServiceRequestDTO == null)
@@ -70,6 +71,7 @@ namespace ABC.Learning.Resource.API.Controllers
             }
         }
 
+        [HttpPost("api/v1/books/delete")]
         public async Task<IActionResult> DeleteBook([FromBody] DeleteBookServiceRequestDTO deleteBookServiceRequestDTO)
         {
             if (deleteBookServiceRequestDTO == null)

@@ -13,6 +13,8 @@ namespace ABC.Learning.Resource.API.Extensions
             services.AddScoped<IAddBookPriceHandler, AddBookPriceHandler>();
             services.AddScoped<IAddBookStockHandler, AddBookStockHandler>();
             services.AddScoped<IUpdateBookHandler, UpdateBookHandler>();
+            services.AddScoped<IUpdateBookPriceHandler, UpdateBookPriceHandler>();
+            services.AddScoped<IUpdateBookStockHandler, UpdateBookStockHandler>();
             services.AddScoped<IDeleteBookByIdHandler, DeleteBookByIdHandler>();
             services.AddScoped<IGetBookPriceByBookId, GetBookPriceByBookId>();
             services.AddScoped<IGetBookStockByBookId, GetBookStockByBookId>();
