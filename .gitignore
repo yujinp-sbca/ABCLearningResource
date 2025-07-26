@@ -1,0 +1,42 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/ABC.Learning.Resource.Center/.vs
+<<<<<<< Updated upstream
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.Application/obj/Debug/net8.0
+=======
+>>>>>>> Stashed changes
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.Application/obj
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.Domain/bin/Debug/net8.0
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.Domain/obj
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.Persistence/obj
+<<<<<<< Updated upstream
+/.vs
+=======
+>>>>>>> Stashed changes
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.API/bin/Debug/net8.0
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.API/obj
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.API/ABC.Learning.Resource.API.csproj.user
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.Application/bin/Debug/net8.0
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.Persistence/bin/Debug/net8.0
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.Tests/bin/Debug/net8.0/ABC.Learning.Resource.Application.Tests.dll
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.Tests/bin/Debug/net8.0/ABC.Learning.Resource.Application.Tests.pdb
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.Tests/obj/Debug/net8.0/ref/ABC.Learning.Resource.Application.Tests.dll
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.Tests/obj/Debug/net8.0/refint/ABC.Learning.Resource.Application.Tests.dll
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.Exceptions/bin/Debug/net8.0/ABC.Learning.Resource.Exceptions.dll
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.Exceptions/bin/Debug/net8.0/ABC.Learning.Resource.Exceptions.pdb
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.Tests/obj/Debug/net8.0/ABC.Learning.Resource.Application.Tests.AssemblyInfo.cs
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.Tests/obj/Debug/net8.0/ABC.Learning.Resource.Application.Tests.AssemblyInfoInputs.cache
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.Tests/obj/Debug/net8.0/ABC.Learning.Resource.Application.Tests.dll
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.Tests/obj/Debug/net8.0/ABC.Learning.Resource.Application.Tests.pdb
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.Tests/obj/Debug/net8.0/ABC.Learning.Resource.Application.Tests.sourcelink.json
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.Exceptions/obj/Debug/net8.0/ref/ABC.Learning.Resource.Exceptions.dll
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.Exceptions/obj/Debug/net8.0/refint/ABC.Learning.Resource.Exceptions.dll
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.Exceptions/obj/Debug/net8.0/ABC.Learning.Resource.Exceptions.AssemblyInfo.cs
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.Exceptions/obj/Debug/net8.0/ABC.Learning.Resource.Exceptions.AssemblyInfoInputs.cache
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.Exceptions/obj/Debug/net8.0/ABC.Learning.Resource.Exceptions.dll
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.Exceptions/obj/Debug/net8.0/ABC.Learning.Resource.Exceptions.pdb
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.Exceptions/obj/Debug/net8.0/ABC.Learning.Resource.Exceptions.sourcelink.json
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.API/appsettings.json
+/ABC.Learning.Resource.Center/ABC.Learning.Resource.API/appsettings.json

@@ -1,0 +1,13 @@
+C:\Development\MIT\Term1\ABCLearningResourceCenter\Application\ABCLearningResource\ABC.Learning.Resource.Center\ABC.Learning.Resource.Exceptions\bin\Debug\net8.0\ABC.Learning.Resource.Exceptions.deps.json
+C:\Development\MIT\Term1\ABCLearningResourceCenter\Application\ABCLearningResource\ABC.Learning.Resource.Center\ABC.Learning.Resource.Exceptions\bin\Debug\net8.0\ABC.Learning.Resource.Exceptions.dll
+C:\Development\MIT\Term1\ABCLearningResourceCenter\Application\ABCLearningResource\ABC.Learning.Resource.Center\ABC.Learning.Resource.Exceptions\bin\Debug\net8.0\ABC.Learning.Resource.Exceptions.pdb
+C:\Development\MIT\Term1\ABCLearningResourceCenter\Application\ABCLearningResource\ABC.Learning.Resource.Center\ABC.Learning.Resource.Exceptions\obj\Debug\net8.0\ABC.Learning.Resource.Exceptions.csproj.AssemblyReference.cache
+C:\Development\MIT\Term1\ABCLearningResourceCenter\Application\ABCLearningResource\ABC.Learning.Resource.Center\ABC.Learning.Resource.Exceptions\obj\Debug\net8.0\ABC.Learning.Resource.Exceptions.GeneratedMSBuildEditorConfig.editorconfig
+C:\Development\MIT\Term1\ABCLearningResourceCenter\Application\ABCLearningResource\ABC.Learning.Resource.Center\ABC.Learning.Resource.Exceptions\obj\Debug\net8.0\ABC.Learning.Resource.Exceptions.AssemblyInfoInputs.cache
+C:\Development\MIT\Term1\ABCLearningResourceCenter\Application\ABCLearningResource\ABC.Learning.Resource.Center\ABC.Learning.Resource.Exceptions\obj\Debug\net8.0\ABC.Learning.Resource.Exceptions.AssemblyInfo.cs
+C:\Development\MIT\Term1\ABCLearningResourceCenter\Application\ABCLearningResource\ABC.Learning.Resource.Center\ABC.Learning.Resource.Exceptions\obj\Debug\net8.0\ABC.Learning.Resource.Exceptions.csproj.CoreCompileInputs.cache
+C:\Development\MIT\Term1\ABCLearningResourceCenter\Application\ABCLearningResource\ABC.Learning.Resource.Center\ABC.Learning.Resource.Exceptions\obj\Debug\net8.0\ABC.Learning.Resource.Exceptions.sourcelink.json
+C:\Development\MIT\Term1\ABCLearningResourceCenter\Application\ABCLearningResource\ABC.Learning.Resource.Center\ABC.Learning.Resource.Exceptions\obj\Debug\net8.0\ABC.Learning.Resource.Exceptions.dll
+C:\Development\MIT\Term1\ABCLearningResourceCenter\Application\ABCLearningResource\ABC.Learning.Resource.Center\ABC.Learning.Resource.Exceptions\obj\Debug\net8.0\refint\ABC.Learning.Resource.Exceptions.dll
+C:\Development\MIT\Term1\ABCLearningResourceCenter\Application\ABCLearningResource\ABC.Learning.Resource.Center\ABC.Learning.Resource.Exceptions\obj\Debug\net8.0\ABC.Learning.Resource.Exceptions.pdb
+C:\Development\MIT\Term1\ABCLearningResourceCenter\Application\ABCLearningResource\ABC.Learning.Resource.Center\ABC.Learning.Resource.Exceptions\obj\Debug\net8.0\ref\ABC.Learning.Resource.Exceptions.dll

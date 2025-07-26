@@ -1,0 +1,18 @@
+﻿using ABC.Learning.Resource.Application.Contracts.Persistence;
+using ABC.Learning.Resource.Persistence.Repositories;
+
+namespace ABC.Learning.Resource.API.Extensions
+{
+    public static class RepositoryCollectionExtension
+    {
+        public static IServiceCollection RegisterABCLearningResourceFeatures(this IServiceCollection services)
+        {
+            services.AddScoped(typeof(IAsyncRepository<>), typeof(BaseRepository<>));
+            services.AddScoped<IBookRepository, BookRepository>();
+            services.AddScoped<IBookPriceRepository, BookPriceRepository>();
+            services.AddScoped<IBookStockRepository, BookStockRepository>();
+            services.AddScoped<IUserAccountRepository, UserAccountRepository>();
+            return services;
+        }
+    }
+}
