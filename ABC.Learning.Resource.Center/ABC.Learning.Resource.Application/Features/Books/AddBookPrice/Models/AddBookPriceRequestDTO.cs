@@ -10,6 +10,6 @@ namespace ABC.Learning.Resource.Application.Features.Books
     {
         public Guid BookId { get; set; }
         public double Price { get; set; }
-        public string CreatedBy { get; set; } = string.Empty;
+        public Guid CreatedBy { get; set; } = Guid.Empty;
     }
 }

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ABC.Learning.Resource.Application.Services.Book
+namespace ABC.Learning.Resource.Application.Features.BookReservation
 {
-    public class DeleteBookServiceRequestDTO
+    public class AddBookReservationRequestDTO
     {
         public Guid BookId { get; set; } = Guid.Empty;
-        public Guid ModifiedBy { get; set; } = Guid.Empty;
+        public Guid UserId { get; set; } = Guid.Empty;
     }
 }

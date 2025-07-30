@@ -21,7 +21,7 @@ namespace ABC.Learning.Resource.Domain.Entities
         public required string Abstract { get; set; }
         public required string Publisher { get; set; }
         public required string Language { get; set; }        
-        public required string CoverImageUrl { get; set; }
+        public required string CoverImageUrl { get; set; }        
         public required bool IsActive { get; set; } = true;
     }
 }

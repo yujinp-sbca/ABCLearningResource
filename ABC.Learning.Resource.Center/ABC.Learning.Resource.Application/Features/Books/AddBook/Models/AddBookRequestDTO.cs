@@ -18,6 +18,6 @@ namespace ABC.Learning.Resource.Application.Features.Books
         public string Language { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public string CoverImageUrl { get; set; } = string.Empty;
-        public string CreatedBy { get; set; } = string.Empty;
+        public Guid CreatedBy { get; set; } = Guid.Empty;
     }
 }

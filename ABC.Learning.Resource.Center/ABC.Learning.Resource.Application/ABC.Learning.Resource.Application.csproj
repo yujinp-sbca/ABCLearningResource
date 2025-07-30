@@ -9,17 +9,14 @@
   <ItemGroup>
     <Compile Remove="Features\BookPrices\**" />
     <Compile Remove="Features\BookStocks\**" />
-    <Compile Remove="Features\BookTransactions\**" />
     <Compile Remove="Features\UserAccount\**" />
     <Compile Remove="Features\Users\**" />
     <EmbeddedResource Remove="Features\BookPrices\**" />
     <EmbeddedResource Remove="Features\BookStocks\**" />
-    <EmbeddedResource Remove="Features\BookTransactions\**" />
     <EmbeddedResource Remove="Features\UserAccount\**" />
     <EmbeddedResource Remove="Features\Users\**" />
     <None Remove="Features\BookPrices\**" />
     <None Remove="Features\BookStocks\**" />
-    <None Remove="Features\BookTransactions\**" />
     <None Remove="Features\UserAccount\**" />
     <None Remove="Features\Users\**" />
   </ItemGroup>
@@ -37,6 +34,15 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Features\BookReservation\AddBookReservation\Models\AddBookReservationRequestDTO.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\BorrowBook\AddBorrowBook\" />
+    <Folder Include="Features\ReturnBook\" />
   </ItemGroup>
 
 </Project>

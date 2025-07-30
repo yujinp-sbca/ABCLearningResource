@@ -19,7 +19,7 @@ namespace ABC.Learning.Resource.Application.Services.Book
         public string Language { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public string CoverImageUrl { get; set; } = string.Empty;
-        public string ModifiedBy { get; set; } = string.Empty;
+        public Guid ModifiedBy { get; set; } = Guid.Empty;
         public double Price { get; set; } = 0.0;
         public int Stock { get; set; } = 0;
     }

@@ -20,9 +20,9 @@ namespace ABC.Learning.Resource.Application.Services.Book
         private readonly IUpdateBookStockHandler _updateBookStockHandler;
         private readonly IDeleteBookByIdHandler _deleteBookByIdHandler;
         private readonly IGetBookByIdHandler _getBookByIdHandler;
-        private readonly IGetActiveUserByEmailHandler _getActiveUserByEmailHandler;
+        private readonly IGetActiveUserByUserIdHandler _getActiveUserByEmailHandler;
         private readonly ILogger<IBookService> _logger;
-        public BookService(IAddBookHandler addBookHandler, IAddBookPriceHandler addBookPriceHandler, IAddBookStockHandler addBookStockHandler, IUpdateBookHandler updateBookHandler, IUpdateBookPriceHandler updateBookPriceHandler, IUpdateBookStockHandler updateBookStockHandler, IDeleteBookByIdHandler deleteBookByIdHandler, IGetBookByIdHandler getBookByIdHandler, IGetActiveUserByEmailHandler getActiveUserByEmailHandler, ILogger<IBookService> logger)
+        public BookService(IAddBookHandler addBookHandler, IAddBookPriceHandler addBookPriceHandler, IAddBookStockHandler addBookStockHandler, IUpdateBookHandler updateBookHandler, IUpdateBookPriceHandler updateBookPriceHandler, IUpdateBookStockHandler updateBookStockHandler, IDeleteBookByIdHandler deleteBookByIdHandler, IGetBookByIdHandler getBookByIdHandler, IGetActiveUserByUserIdHandler getActiveUserByEmailHandler, ILogger<IBookService> logger)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _addBookHandler = addBookHandler ?? throw new ArgumentNullException(nameof(addBookHandler));
@@ -115,8 +115,8 @@ namespace ABC.Learning.Resource.Application.Services.Book
 
             if (!user.IsAdmin)
             {
-                _logger.LogError($"User with email {bookServiceRequestDTO.ModifiedBy} is not an admin and cannot add books.");
-                throw new UnauthorizedAccessException($"User with email {bookServiceRequestDTO.ModifiedBy} is not authorized to add books.");
+                _logger.LogError($"User with email {bookServiceRequestDTO.ModifiedBy} is not an admin and cannot update books.");
+                throw new UnauthorizedAccessException($"User with email {bookServiceRequestDTO.ModifiedBy} is not authorized to update books.");
             }
 
             var currentBook = await _getBookByIdHandler.Handle(bookServiceRequestDTO.BookId);
@@ -157,7 +157,7 @@ namespace ABC.Learning.Resource.Application.Services.Book
                         }
                     );
 
-            var updateBookStockResponseDTO = await _updateBookStockHandler.Handle(
+            var updateBookStockResponseDTO = await _updateBookStockHandler.Handle(                                                                        
                         new UpdateBookStockRequestDTO()
                         {
                             BookId = bookServiceRequestDTO.BookId,
@@ -179,6 +179,18 @@ namespace ABC.Learning.Resource.Application.Services.Book
 
         public async Task<bool> DeleteBook(DeleteBookServiceRequestDTO deleteBookServiceRequestDTO)
         {
+            var user = await _getActiveUserByEmailHandler.Handle(deleteBookServiceRequestDTO.ModifiedBy);
+            if (user == null)
+            {
+                throw new ApplicationException($"User with email {deleteBookServiceRequestDTO.ModifiedBy} does not exist or is not active.");
+            }
+
+            if (!user.IsAdmin)
+            {
+                _logger.LogError($"User with email {deleteBookServiceRequestDTO.ModifiedBy} is not an admin and cannot delete books.");
+                throw new UnauthorizedAccessException($"User with email {deleteBookServiceRequestDTO.ModifiedBy} is not authorized to delete books.");
+            }
+
             var deleteBookByIdRequestDTO = new DeleteBookByIdRequestDTO()
             {
                 BookId = deleteBookServiceRequestDTO.BookId,

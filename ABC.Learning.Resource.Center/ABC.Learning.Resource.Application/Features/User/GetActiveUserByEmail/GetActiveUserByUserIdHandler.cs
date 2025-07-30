@@ -3,29 +3,29 @@ using Microsoft.Extensions.Logging;
 
 namespace ABC.Learning.Resource.Application.Features.User
 {
-    public class GetActiveUserByEmailHandler : IGetActiveUserByEmailHandler
+    public class GetActiveUserByUserIdHandler : IGetActiveUserByUserIdHandler
     {
         private readonly IUserAccountRepository _userAccountRepository;
-        private readonly ILogger<IGetActiveUserByEmailHandler> _logger;
+        private readonly ILogger<IGetActiveUserByUserIdHandler> _logger;
 
-        public GetActiveUserByEmailHandler(IUserAccountRepository userAccountRepository, ILogger<IGetActiveUserByEmailHandler> logger)
+        public GetActiveUserByUserIdHandler(IUserAccountRepository userAccountRepository, ILogger<IGetActiveUserByUserIdHandler> logger)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _userAccountRepository = userAccountRepository ?? throw new ArgumentNullException(nameof(userAccountRepository));
         }
 
-        public async Task<GetActiveUserByEmailResponse> Handle(string email)
+        public async Task<GetActiveUserByEmailResponseDTO> Handle(Guid userId)
         {
-            var userResponse = new GetActiveUserByEmailResponse();
+            var userResponse = new GetActiveUserByEmailResponseDTO();
 
-            if (string.IsNullOrEmpty(email))
+            if (userId == Guid.Empty)
             {
                 _logger.LogError("Email cannot be null or empty.");
-                throw new ArgumentException("Email cannot be null or empty.", nameof(email));
+                throw new ArgumentException("Email cannot be null or empty.", nameof(userId));
             }
 
-            _logger.LogInformation("Fetching active user by email: {Email}", email);
-            var user = await _userAccountRepository.GetActiveUserByEmail(email);
+            _logger.LogInformation("Fetching active user by email: {Email}", userId);
+            var user = await _userAccountRepository.GetActiveUserByEmail(userId);
 
             if (user != null) {
                 userResponse.UserId = user.UserId;

@@ -40,7 +40,7 @@ namespace ABC.Learning.Resource.Application.Features.Books
                 Description = addBookDTO.Description,
                 CoverImageUrl = addBookDTO.CoverImageUrl,
                 CreatedBy = addBookDTO.CreatedBy,                
-                LastModifiedBy = addBookDTO.CreatedBy,                
+                LastModifiedBy = addBookDTO.CreatedBy,
                 IsActive = true
             };
 

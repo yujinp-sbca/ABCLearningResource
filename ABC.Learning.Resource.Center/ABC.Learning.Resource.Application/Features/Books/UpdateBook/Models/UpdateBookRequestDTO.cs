@@ -19,6 +19,6 @@ namespace ABC.Learning.Resource.Application.Features.Books
         public string CoverImageUrl { get; set; } = string.Empty;
         public string Abstract { get; set; } = string.Empty;
         public Guid CategoryId { get; set; } = Guid.Empty;
-        public string ModifiedBy { get; set; } = string.Empty;
+        public Guid ModifiedBy { get; set; } = Guid.Empty;
     }
 }

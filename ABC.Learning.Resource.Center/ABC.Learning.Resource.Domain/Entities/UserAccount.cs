@@ -11,7 +11,7 @@ namespace ABC.Learning.Resource.Domain.Entities
     public class UserAccount : AuditEntity
     {
         [Key]
-        public required string UserId { get; set; }
+        public required Guid UserId { get; set; }
         public required string LastName { get; set; }
         public required string FirstName { get; set; }        
         public required string Salt { get; set; }

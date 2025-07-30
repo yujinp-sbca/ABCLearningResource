@@ -9,6 +9,6 @@ namespace ABC.Learning.Resource.Application.Features.Books
     public class DeleteBookByIdRequestDTO
     {
         public Guid BookId { get; set; } = Guid.Empty;
-        public string ModifiedBy { get; set; } = string.Empty;
+        public Guid ModifiedBy { get; set; } = Guid.Empty;
     }
 }

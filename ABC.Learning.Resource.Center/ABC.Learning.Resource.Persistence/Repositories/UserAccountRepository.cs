@@ -18,10 +18,10 @@ namespace ABC.Learning.Resource.Persistence.Repositories
         {
         }
 
-        public async Task<UserAccount> GetActiveUserByEmail(string email)
+        public async Task<UserAccount> GetActiveUserByEmail(Guid userId)
         {
             var result = await _context.UserAccounts
-                            .Where(u => u.UserId == email && !u.IsMembershipRevoked)
+                            .Where(u => u.UserId == userId && !u.IsMembershipRevoked)
                             .FirstOrDefaultAsync();
 
             return result;

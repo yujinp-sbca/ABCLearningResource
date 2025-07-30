@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ABC.Learning.Resource.Application.Features.User
 {
-    public class GetActiveUserByEmailResponse
+    public class GetActiveUserByEmailResponseDTO
     {
-        public string UserId { get; set; } = string.Empty;
+        public Guid UserId { get; set; } = Guid.Empty;
         
         public bool IsAdmin { get; set; } = false;
     }

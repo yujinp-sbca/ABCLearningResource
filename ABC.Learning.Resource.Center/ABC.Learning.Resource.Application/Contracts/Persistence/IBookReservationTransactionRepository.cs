@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace ABC.Learning.Resource.Application.Contracts.Persistence
 {
-    public interface IBookTransactionRepository : IAsyncRepository<BookTransaction>
+    public interface IBookReservationTransactionRepository : IAsyncRepository<BookReservationTransaction>
     {
+        public Task<int> GetBookReservationByUserCount(Guid userId);
     }
 }
