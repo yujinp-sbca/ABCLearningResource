@@ -12,7 +12,7 @@ namespace ABC.Learning.Resource.Persistence.Repositories
 {
     public class BookPriceRepository : BaseRepository<BookPrice>, IBookPriceRepository
     {
-        public BookPriceRepository(ABCLearningResourceContext context, ILogger<BaseRepository<BookPrice>> logger) : base(context, logger)
+        public BookPriceRepository(ABCLearningResourceContext context, ILogger<BookPriceRepository> logger) : base(context, logger)
         {
         }
 

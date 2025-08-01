@@ -37,12 +37,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Features\BookReservation\AddBookReservation\Models\AddBookReservationRequestDTO.cs" />
+    <None Include="Features\BookRequest\AddBookRequest\Models\AddBookRequestDTO.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\BorrowBook\AddBorrowBook\" />
-    <Folder Include="Features\ReturnBook\" />
+    <Folder Include="Features\BookRequestPenalty\SetOverduePenalty\Models\" />
+    <Folder Include="Features\BookRequestPenalty\SettleBookRequestPenalty\" />
   </ItemGroup>
 
 </Project>
