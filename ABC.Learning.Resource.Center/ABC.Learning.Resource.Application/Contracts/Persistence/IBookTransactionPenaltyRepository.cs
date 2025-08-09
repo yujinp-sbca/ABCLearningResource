@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace ABC.Learning.Resource.Application.Contracts.Persistence
 {
-    public interface IBookTransactionPenaltyRepository : IAsyncRepository<BookTransactionPenalty>
+    public interface IBookTransactionPenaltyRepository : IAsyncRepository<BookPenaltyTransaction>
     {
-        
+        public Task<Configuration?> GetConfigurationByName(string name);
     }
 }

@@ -16,6 +16,9 @@ namespace ABC.Learning.Resource.Application.Features.Books
                      .WithMessage("Update book stock request parameter cannot be null")
                  .DependentRules(() =>
                  {
+                     RuleFor(a => a.BookStockId)
+                        .NotEqual(Guid.Empty)
+                            .WithMessage("UpdateBookStockRequestDTO.BookStockId cannot be empty or null.");
                      RuleFor(a => a.BookId)
                          .NotEqual(Guid.Empty)
                              .WithMessage("UpdateBookStockRequestDTO.BookId cannot be empty or null.");

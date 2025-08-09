@@ -1,4 +1,5 @@
 ﻿using ABC.Learning.Resource.Application.Contracts.Persistence;
+using ABC.Learning.Resource.Domain.Entities;
 using ABC.Learning.Resource.Exceptions;
 using Microsoft.Extensions.Logging;
 
@@ -27,17 +28,15 @@ namespace ABC.Learning.Resource.Application.Features.Books
                 throw new ValidationException(validationResult);
             }
 
-            var currentBookStock = await _bookStockRepository.GetByBookIdAsync(updateBookStockDTO.BookId);
-            if (currentBookStock == null)
+            var bookStock = new BookStock()
             {
-                _logger.LogError($"Book stock for BookId {updateBookStockDTO.BookId} not found.");
-                throw new ApplicationException($"Book stock for BookId {updateBookStockDTO.BookId} not found.");
-            }
+                BookStockId = updateBookStockDTO.BookStockId,
+                BookId = updateBookStockDTO.BookId,
+                Quantity = updateBookStockDTO.BookStock,
+                LastModifiedBy = updateBookStockDTO.ModifiedBy
+            };            
 
-            currentBookStock.Quantity = updateBookStockDTO.BookStock;
-            currentBookStock.LastModifiedBy = updateBookStockDTO.ModifiedBy;
-
-            var updateBookStockResponseDTO = await _bookStockRepository.UpdateAsync(currentBookStock);
+            var updateBookStockResponseDTO = await _bookStockRepository.UpdateAsync(bookStock);
             if(updateBookStockResponseDTO.BookId == Guid.Empty)
             {
                 _logger.LogError($"Failed to update book stock for BookId {updateBookStockDTO.BookId}.");
@@ -46,6 +45,7 @@ namespace ABC.Learning.Resource.Application.Features.Books
 
             return new UpdateBookStockResponseDTO()
             {
+                BookStockId = updateBookStockResponseDTO.BookStockId,
                 BookId = updateBookStockResponseDTO.BookId,
                 BookStock = updateBookStockResponseDTO.Quantity
             };

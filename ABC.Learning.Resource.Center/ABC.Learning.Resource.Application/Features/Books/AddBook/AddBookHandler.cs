@@ -46,6 +46,12 @@ namespace ABC.Learning.Resource.Application.Features.Books
 
             _logger.LogInformation($"Adding book: {newBook.Title} by {newBook.Author}");
             var newBookResponse = await _bookRepository.AddAsync(newBook);
+
+            if(newBookResponse?.BookId == Guid.Empty)
+            {
+                throw new ApplicationException("Error adding book.");
+            }
+
             _logger.LogInformation($"Book {newBook.Title} added successfully with ID: {newBook.BookId}");
 
             return new AddBookResponseDTO()

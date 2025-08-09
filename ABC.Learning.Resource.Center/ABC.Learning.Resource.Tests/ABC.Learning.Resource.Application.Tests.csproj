@@ -25,4 +25,12 @@
     <Using Include="Xunit" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ABC.Learning.Resource.Application\ABC.Learning.Resource.Application.csproj" />
+  </ItemGroup>
+
 </Project>

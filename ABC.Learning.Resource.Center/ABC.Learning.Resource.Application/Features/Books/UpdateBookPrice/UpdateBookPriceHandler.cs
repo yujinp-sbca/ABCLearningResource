@@ -26,16 +26,13 @@ namespace ABC.Learning.Resource.Application.Features.Books
                 throw new ValidationException(validationResult);
             }
 
-            var currentBookPrice = await _bookPriceRepository.GetByBookIdAsync(updateBookPriceDTO.BookId);
-            if(currentBookPrice == null)
-            {
-                _logger.LogError($"Book price for BookId {updateBookPriceDTO.BookId} not found.");
-                throw new ApplicationException($"Book price for BookId {updateBookPriceDTO.BookId} not found.");
-            }
-
-            currentBookPrice.Price = updateBookPriceDTO.Price;
-            currentBookPrice.LastModifiedBy = updateBookPriceDTO.ModifiedBy;
-            currentBookPrice.IsActive = false;
+            var currentBookPrice = new BookPrice() {
+                BookPriceId = updateBookPriceDTO.BookPriceId,
+                BookId = updateBookPriceDTO.BookId,
+                Price = updateBookPriceDTO.Price,
+                LastModifiedBy = updateBookPriceDTO.ModifiedBy,
+                IsActive = updateBookPriceDTO.IsActive
+            };
 
             var updatedBookPriceResponse = await _bookPriceRepository.UpdateAsync(currentBookPrice);
 
@@ -43,28 +40,14 @@ namespace ABC.Learning.Resource.Application.Features.Books
             {
                 _logger.LogError($"Failed to update book price for BookId {updateBookPriceDTO.BookId}.");
                 throw new ApplicationException($"Failed to update book price for BookId {updateBookPriceDTO.BookId}.");
-            }
-
-            var newBookPrice = new BookPrice()
-            {
-                BookPriceId = new Guid(),
-                BookId = updateBookPriceDTO.BookId,
-                Price = updateBookPriceDTO.Price,
-                IsActive = true,
-                LastModifiedBy = updateBookPriceDTO.ModifiedBy,
-                CreatedBy = updateBookPriceDTO.ModifiedBy
-            };
-
-            _logger.LogInformation("Adding new book price");
-            var newBookPriceResponse = await _bookPriceRepository.AddAsync(newBookPrice);
-            _logger.LogInformation("Successfully added new book price");
+            }           
 
             _logger.LogInformation($"Book price for BookId {updateBookPriceDTO.BookId} updated successfully to {updateBookPriceDTO.Price}.");
 
             return new UpdateBookPriceResponseDTO()
             {
-                BookId = newBookPriceResponse.BookId,
-                Price = newBookPriceResponse.Price
+                BookId = currentBookPrice.BookId,
+                Price = currentBookPrice.Price
             };
 
         }

@@ -34,7 +34,7 @@ namespace ABC.Learning.Resource.Application.Features.BookRequestPenalty
                 throw new ValidationException(validationResult);
             }
 
-            var bookTransactionPenalty = new BookTransactionPenalty()
+            var bookTransactionPenalty = new BookPenaltyTransaction()
             {
                 BookTransactionPenaltyId = Guid.NewGuid(),
                 TransactionId = request.TransactionId,                

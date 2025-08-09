@@ -40,9 +40,4 @@
     <None Include="Features\BookRequest\AddBookRequest\Models\AddBookRequestDTO.cs" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\BookRequestPenalty\SetOverduePenalty\Models\" />
-    <Folder Include="Features\BookRequestPenalty\SettleBookRequestPenalty\" />
-  </ItemGroup>
-
 </Project>

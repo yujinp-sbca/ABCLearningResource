@@ -16,6 +16,7 @@ namespace ABC.Learning.Resource.Persistence
         public DbSet<BookStock> BookStocks { get; set; }
         public DbSet<BookRequestTransaction> BookReservationTransactions { get; set; }
         public DbSet<UserAccount> UserAccounts { get; set; }
+        public DbSet<Configuration> Configurations { get; set; }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {

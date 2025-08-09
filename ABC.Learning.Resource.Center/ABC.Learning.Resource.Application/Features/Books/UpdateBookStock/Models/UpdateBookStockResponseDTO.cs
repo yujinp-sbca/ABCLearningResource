@@ -8,6 +8,7 @@ namespace ABC.Learning.Resource.Application.Features.Books
 {
     public class UpdateBookStockResponseDTO
     {
+        public Guid BookStockId { get; set; } = Guid.Empty;
         public Guid BookId { get; set; } = Guid.Empty;
         public int BookStock { get; set; } = 0;
     }
